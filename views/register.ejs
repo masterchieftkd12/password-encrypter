@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<div class="form-box">
+  <h1>Sign Up</h1>
+
+  <% if (error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+
+  <form action="/register" method="POST" id="register-form">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="masterKey">Master Key (at least 8 characters)</label>
+    <input type="password" id="masterKey" name="masterKey" minlength="8" required>
+
+    <label for="confirmKey">Confirm Master Key</label>
+    <input type="password" id="confirmKey" name="confirmKey" required>
+
+    <button type="submit" class="btn">Create Account</button>
+  </form>
+
+  <p>Already have an account? <a href="/login">Log in</a></p>
+</div>
+
+<%- include('partials/footer') %>

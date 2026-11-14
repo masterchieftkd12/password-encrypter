@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<section class="hero">
+  <h1>Keep your passwords safe</h1>
+  <p>Stop saving passwords in your notes app. Password Encrypter locks them with your own master key so nobody else can read them.</p>
+  <% if (user) { %>
+    <a href="/passwords" class="btn">Go to My Passwords</a>
+  <% } else { %>
+    <a href="/register" class="btn">Sign Up</a>
+    <a href="/login" class="btn btn-outline">Log In</a>
+  <% } %>
+</section>
+
+<section class="cards">
+  <div class="card">
+    <h3>1. Sign up</h3>
+    <p>Create an account and pick a master key.</p>
+  </div>
+  <div class="card">
+    <h3>2. Encrypt</h3>
+    <p>Save a password with a label like "Gmail". It gets scrambled before it is saved.</p>
+  </div>
+  <div class="card">
+    <h3>3. Decrypt</h3>
+    <p>Type your master key to see the password again.</p>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

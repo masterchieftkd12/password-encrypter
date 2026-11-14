@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+
+<div class="form-box">
+  <h1>Log In</h1>
+
+  <% if (error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+
+  <form action="/login" method="POST">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="masterKey">Master Key</label>
+    <input type="password" id="masterKey" name="masterKey" required>
+
+    <button type="submit" class="btn">Log In</button>
+  </form>
+
+  <p>Don't have an account? <a href="/register">Sign up</a></p>
+</div>
+
+<%- include('partials/footer') %>

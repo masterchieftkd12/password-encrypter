@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> - Password Encrypter</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/images/logo.svg">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/" class="logo"><img src="/images/logo.svg" alt="logo" width="26"> Password Encrypter</a>
+    <div class="links">
+      <a href="/">Home</a>
+      <a href="/about">How It Works</a>
+      <% if (user) { %>
+        <a href="/passwords">My Passwords</a>
+        <% if (user.role === 'manager') { %>
+          <a href="/manager">Manager</a>
+        <% } %>
+        <form action="/logout" method="POST" class="logout-form">
+          <button type="submit">Log Out</button>
+        </form>
+      <% } else { %>
+        <a href="/login">Log In</a>
+        <a href="/register">Sign Up</a>
+      <% } %>
+    </div>
+  </nav>
+  <main>

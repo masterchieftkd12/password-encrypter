@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<h1>How It Works</h1>
+
+<div class="card">
+  <h3>Your master key</h3>
+  <p>When you sign up your master key is not saved but Only a hash of it is saved using scrypt so the app can check if you typed it right.</p>
+
+  <h3>Encrypting</h3>
+  <p>Your master key and a random salt are turned into a 256-bit key with PBKDF2. Then your password is encrypted with AES-256-GCM. Only the scrambled text is saved.</p>
+
+  <h3>Decrypting</h3>
+  <p>To see a password you have to type your master key again. If it is wrong then nothing is shown. Every try is saved in a log.</p>
+
+  <h3>Managers</h3>
+  <p>Managers can see the list of users but not anyone else's passwords</p>
+</div>
+
+<%- include('partials/footer') %>
