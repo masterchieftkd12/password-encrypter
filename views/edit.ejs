@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<div class="form-box">
+  <h1>Edit Password</h1>
+
+  <% if (error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+
+  <form action="/passwords/<%= entry.id %>/edit" method="POST">
+    <label for="label">Label</label>
+    <input type="text" id="label" name="label" value="<%= entry.label %>" required>
+
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" value="<%= entry.username %>">
+
+    <label for="newPassword">New Password (leave empty to keep the old one)</label>
+    <input type="password" id="newPassword" name="newPassword">
+
+    <label for="masterKey">Master Key (only needed for a new password)</label>
+    <input type="password" id="masterKey" name="masterKey">
+
+    <button type="submit" class="btn">Save Changes</button>
+  </form>
+
+  <form action="/passwords/<%= entry.id %>/delete" method="POST" class="delete-form">
+    <button type="submit" class="btn btn-delete">Delete Password</button>
+  </form>
+
+  <p><a href="/passwords/<%= entry.id %>">Back</a></p>
+</div>
+
+<%- include('partials/footer') %>

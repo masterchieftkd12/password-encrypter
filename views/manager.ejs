@@ -1,0 +1,46 @@
+<%- include('partials/header') %>
+
+<h1>Manager Page</h1>
+<p>Managers can see all users, but not their passwords.</p>
+
+<h2>Registered Users (<%= users.length %>)</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Saved Passwords</th>
+  </tr>
+  <% users.forEach((u) => { %>
+    <tr>
+      <td><%= u.name %></td>
+      <td><%= u.email %></td>
+      <td><%= u.role %></td>
+      <td><%= u.entryCount %></td>
+    </tr>
+  <% }) %>
+</table>
+
+<h2>Activity Log</h2>
+<% if (logs.length === 0) { %>
+  <p>No activity yet.</p>
+<% } else { %>
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Action</th>
+      <th>Result</th>
+      <th>Time</th>
+    </tr>
+    <% logs.forEach((log) => { %>
+      <tr>
+        <td><%= log.email %></td>
+        <td><%= log.action %></td>
+        <td class="<%= log.success ? 'success' : 'failed' %>"><%= log.success ? 'Success' : 'Failed' %></td>
+        <td><%= log.timestamp.toLocaleString() %></td>
+      </tr>
+    <% }) %>
+  </table>
+<% } %>
+
+<%- include('partials/footer') %>

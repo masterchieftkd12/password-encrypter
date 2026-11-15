@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<div class="form-box">
+  <h1>Add Password</h1>
+
+  <% if (error) { %>
+    <p class="error"><%= error %></p>
+  <% } %>
+
+  <form action="/passwords/add" method="POST">
+    <label for="label">Label (website or app)</label>
+    <input type="text" id="label" name="label" placeholder="Gmail" required>
+
+    <label for="username">Username (optional)</label>
+    <input type="text" id="username" name="username">
+
+    <label for="password">Password to Encrypt</label>
+    <input type="password" id="password" name="password" required>
+    <button type="button" class="show-btn" data-for="password">Show</button>
+
+    <label for="masterKey">Your Master Key</label>
+    <input type="password" id="masterKey" name="masterKey" required>
+
+    <button type="submit" class="btn">Encrypt and Save</button>
+  </form>
+
+  <p><a href="/passwords">Back</a></p>
+</div>
+
+<%- include('partials/footer') %>
