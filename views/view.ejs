@@ -13,7 +13,9 @@
 
   <% if (password) { %>
     <p><strong>Decrypted password:</strong></p>
-    <p class="decrypted"><%= password %></p>
+    <p class="decrypted" id="decrypted"><%= password %></p>
+    <button type="button" id="copy-btn" class="small-btn">Copy</button>
+    <p class="hint" id="timer">Hiding in 15 seconds...</p>
   <% } else { %>
     <form action="/passwords/<%= entry.id %>/decrypt" method="POST">
       <label for="masterKey">Enter your master key to decrypt</label>
